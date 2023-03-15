@@ -1,0 +1,48 @@
+:root {
+  /* Colors */
+  --primary-text-color-01: hsl(35, 77%, 62%);
+  --primary-text-color-02: hsl(5, 85%, 63%);
+  --neutral-text-color-01: hsl(36, 100%, 99%);
+  --neutral-text-color-02: hsl(233, 8%, 79%);
+  --neutral-text-color-03: hsl(236, 13%, 42%);
+  --neutral-text-color-04: hsl(240, 100%, 5%);
+
+
+ /* Sizes */
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+img {
+  max-width: 100%
+}
+
+
+
+
+.attribution {
+  font-size: 11px; text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
