@@ -36,8 +36,86 @@ img {
   max-width: 100%
 }
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: min(90%, 1200px);
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  padding: 2em 0;
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+main img {
+  height: 300px;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex-direction: column;
+  padding: 2em 0;
+  text-align: left;
+}
+
+.main-content h1 {
+  font-size: 4em;
+  line-height: 1em;
+}
 
 
+.main-content .cta {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.main-content .cta p {
+  padding: 2em 0;
+  color: var(--neutral-text-color-03);
+}
+
+.main-content .cta a {
+  padding: 1em;
+  width: 180px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--primary-text-color-02);
+  font-size: 1.3em;
+  color: white;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+}
+
+.nav {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.nav-toggle {
+  position: absolute;
+  right: 0;
+  border: transparent;
+}
 
 .attribution {
   font-size: 11px; text-align: center;
