@@ -84,8 +84,8 @@ main img {
 }
 
 .main-container {
-  flex-direction: column;
-  padding: 2em 0;
+  display: grid;
+  padding: 2em 0 0;
   text-align: left;
 }
 
@@ -152,6 +152,48 @@ aside {
   font-size: 1.45em;
   line-height: 1.8em;
   color: var(--neutral-text-color-02);
+}
+
+.posts-container {
+  padding: 2em 0;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.posts-container article {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "image title"
+    "image subtitle"
+    "image text"
+  ;
+  margin-bottom: 2.5em;
+}
+
+.posts-container figure {
+  grid-area: image;
+  margin-right: 1.6em;
+}
+
+.posts-container h2 {
+  grid-area: title;
+  font-size: 3.5em;
+  margin-bottom: 0.1em;
+  color: var(--neutral-text-color-02);
+}
+
+.posts-container h3 {
+  grid-area: subtitle;
+  margin-bottom: 0.7em;
+  font-size: 1.8em;
+  font-weight: 800;
+}
+
+.posts-container p {
+  grid-area: text;
+  font-size: 1.5em;
+  color: var(--neutral-text-color-03);
 }
 
 .attribution {
