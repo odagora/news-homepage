@@ -132,5 +132,19 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script>
+      const navMenu = document.querySelector(".nav");
+      const button = document.querySelector(".nav-toggle");
+      const image = button.querySelector(".menu-icon");
+
+      button.addEventListener("click", function () {
+        navMenu.classList.toggle("nav--visible");
+        if (navMenu.classList.contains("nav--visible")) {
+          image.src = "./assets/images/icon-menu-close.svg";
+        } else {
+          image.src = "./assets/images/icon-menu.svg";
+        }
+      });
+    </script>
   </body>
 </html>

@@ -69,7 +69,36 @@ header {
 .nav-toggle {
   position: absolute;
   right: 0;
+  z-index: 2;
   border: transparent;
+  background-color: transparent;
+}
+
+.nav--visible {
+  position: fixed;
+  padding: 15em 2em;
+  width: 70%;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  visibility: visible;
+  background-color: white;
+  z-index: 1;
+}
+
+nav.nav--visible + button {
+  position: fixed;
+  padding-right: 1em;
+}
+
+.nav__item {
+  margin-bottom: 2.6em;
+}
+
+.nav__item a {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--neutral-text-color-04);
 }
 
 main {
