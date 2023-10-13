@@ -1,94 +1,250 @@
-# Frontend Mentor - News homepage
+# Frontend Mentor - News homepage solution
 
-![Design preview for the News homepage coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-**To do this challenge, you need a good understanding of HTML and CSS, and basic JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this news website homepage and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![Mobile Version](https://bit.ly/3PTMHAi)
+![Desktop Version](https://bit.ly/45yaPhz)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Solution URL: [click here](https://github.com/odagora/news-homepage)
+- Live Site URL: [click here](https://odagora.github.io/news-homepage/)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+### Built with
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- CSS transitions
+- Mobile-first workflow
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### What I learned
 
-## Building your project
+1. Use of CSS Grid responsive design under a `div` container:
+    ```html
+    <div class="container">
+      <header></header>
+      <main></main>
+      <aside></aside>
+      <section></section>
+    </div>
+    ```
+    ```css
+    .container {
+      margin: 0 auto;
+      width: min(90%, 1200px);
+      position: relative;
+      display: grid;
+    }
+    ```
+2. Use of `grid-template-areas` for the layout:
+    ```css
+    .posts-container article {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:
+        "image title"
+        "image subtitle"
+        "image text"
+      ;
+      margin-bottom: 2.5em;
+    }
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+    .posts-container figure {
+      grid-area: image;
+      margin-right: 1.6em;
+    }
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+    .posts-container h2 {
+      grid-area: title;
+      font-size: 3.5em;
+      margin-bottom: 0.1em;
+      color: var(--neutral-text-color-02);
+    }
 
-## Deploying your project
+    .posts-container h3 {
+      grid-area: subtitle;
+      margin-bottom: 0.7em;
+      font-size: 1.8em;
+      font-weight: 800;
+    }
+    ```
+  3. Use of CSS transitions for menu drawer animation:
+      ```css
+      /* For the main menu drawer */
+      .nav {
+        position: fixed;
+        padding: 15em 2em;
+        width: 70%;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background-color: white;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+      }
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+      .nav.visible {
+        transform: translateX(0);
+      }
+      /* For the open/close icon */
+      .nav-icon span {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+        transform-origin: left center;
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -webkit-transition: 0.25s ease-in-out;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+      }
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+      .nav-icon span:nth-child(1) {
+        top: 0;
+      }
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+      .nav-icon.open span:nth-child(1) {
+        top: 0px;
+        left: 8px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+      }
 
-## Create a custom `README.md`
+      .nav-icon span:nth-child(2) {
+        top: 9px;
+      }
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+      .nav-icon.open span:nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+      .nav-icon span:nth-child(3) {
+        top: 18px;
+      }
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+      .nav-icon.open span:nth-child(3) {
+        top: 35px;
+        left: 8px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+      }
+      ```
+  4. Use of an overlay when menu drawer is visible:
+      ```html
+      <!-- Overlay as the main container-->
+      <div class="overlay">
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">New</a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link">Popular</a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link">Trending</a>
+            </li>
+            <li class="nav__item">
+              <a href="" class="nav__link">Categories</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      ```
+      ```css
+      .overlay.visible {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        right: 0;
+        transition: 0.3s linear;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      ```
+  5. Use of JavaScript `classList.toggle` to switch CSS classes with ease:
+      ```js
+      const overlay = document.querySelector(".overlay");
+      const navMenu = document.querySelector(".nav");
+      const navIcon = document.querySelector(".nav-icon");
 
-## Submitting your solution
+      function toggleMenu() {
+        navMenu.classList.toggle("visible");
+        overlay.classList.toggle("visible");
+        navIcon.classList.toggle("open");
+      }
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+      navIcon.addEventListener("click", toggleMenu);
+      ```
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### Continued development
 
-## Sharing your solution
+- Use of preprocessors like SASS for styling
+- Use of CSS Grid in complex layouts
+- Use of transformations and animations with CSS
+- Implementation of UI testing
+- Use of accessibility principles
+- Cross-browser support
+- Use of web components for reusability
 
-There are multiple places you can share your solution:
+### Useful resources
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- [A complete guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) - This helped me for the site layout. I really liked this pattern and will use it going forward whenever I come across complex designs.
+- [An interactive guide to CSS transitions](https://www.joshwcomeau.com/animation/css-transitions/) - This is an amazing interactive website that helped me understand the transitions and animations concepts. I'd recommend it to anyone still learning this concept.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+## Author
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+- Website - [Daniel González](https://odagora.com)
+- Frontend Mentor - [@odagora](https://www.frontendmentor.io/profile/odagora)
+- Twitter - [@odagora](https://www.twitter.com/odagora)
 
-## Got feedback for us?
+## Acknowledgments
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+The Frontend Platzi courses helped me out with the basic concepts of semantic HTML, CSS3, transitions and animations.
