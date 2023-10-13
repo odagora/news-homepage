@@ -144,11 +144,13 @@
       const navMenu = document.querySelector(".nav");
       const navIcon = document.querySelector(".nav-icon");
 
-      navIcon.addEventListener("click", function () {
+      function toggleMenu() {
         navMenu.classList.toggle("visible");
         overlay.classList.toggle("visible");
         navIcon.classList.toggle("open");
-      });
+      }
+
+      navIcon.addEventListener("click", toggleMenu);
     </script>
   </body>
 </html>
