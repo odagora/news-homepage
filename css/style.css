@@ -60,11 +60,31 @@ header {
   padding: 2em 0;
 }
 
-.nav {
-  visibility: hidden;
-  height: 0;
-  position: absolute;
+.overlay{
+  position: fixed;
+  height: 100vh;
   width: 100%;
+  top: 0;
+  right: 0;
+  transition: 0.3s linear;
+}
+
+.overlay.visible {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav {
+  position: fixed;
+  padding: 15em 2em;
+  width: 70%;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: white;
+  z-index: 1;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+
 }
 
 .nav-toggle {
@@ -75,16 +95,8 @@ header {
   background-color: transparent;
 }
 
-.nav--visible {
-  position: fixed;
-  padding: 15em 2em;
-  width: 70%;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  visibility: visible;
-  background-color: white;
-  z-index: 1;
+.nav.visible {
+  transform: translateX(0);
 }
 
 nav.nav--visible + button {
@@ -247,11 +259,21 @@ aside {
 }
 
 @media (min-width: 600px) {
+  .overlay,
+  .overlay.visible {
+    position: relative;
+    height: 0;
+    width: auto;
+    background-color: transparent;
+    opacity: 1;
+  }
+
   .nav {
-    visibility: visible;
+    padding: 0;
     position: relative;
     height: auto;
     width: auto;
+    transform: none;
   }
 
   .nav__list {

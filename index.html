@@ -25,25 +25,27 @@
           <a href="#" class="logo">
             <img src="./assets/images/logo.svg" alt="site logo" />
           </a>
-          <nav class="nav">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="#" class="nav__link">Home</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">New</a>
-              </li>
-              <li class="nav__item">
-                <a href="" class="nav__link">Popular</a>
-              </li>
-              <li class="nav__item">
-                <a href="" class="nav__link">Trending</a>
-              </li>
-              <li class="nav__item">
-                <a href="" class="nav__link">Categories</a>
-              </li>
-            </ul>
-          </nav>
+          <div class="overlay">
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">New</a>
+                </li>
+                <li class="nav__item">
+                  <a href="" class="nav__link">Popular</a>
+                </li>
+                <li class="nav__item">
+                  <a href="" class="nav__link">Trending</a>
+                </li>
+                <li class="nav__item">
+                  <a href="" class="nav__link">Categories</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
           <button class="nav-toggle" aria-label="open navigation">
             <img
               class="menu-icon"
@@ -140,13 +142,15 @@
       </div>
     </div>
     <script>
+      const overlay = document.querySelector(".overlay");
       const navMenu = document.querySelector(".nav");
       const button = document.querySelector(".nav-toggle");
       const image = button.querySelector(".menu-icon");
 
       button.addEventListener("click", function () {
-        navMenu.classList.toggle("nav--visible");
-        if (navMenu.classList.contains("nav--visible")) {
+        navMenu.classList.toggle("visible");
+        overlay.classList.toggle("visible");
+        if (navMenu.classList.contains("visible")) {
           image.src = "./assets/images/icon-menu-close.svg";
         } else {
           image.src = "./assets/images/icon-menu.svg";
